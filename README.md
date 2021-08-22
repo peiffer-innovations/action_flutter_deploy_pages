@@ -38,7 +38,7 @@ jobs:
       - name: Build Number
         run: echo "Build Number - $BUILD_NUMBER"
 
-  validate:
+  publish:
     needs: build_number
     runs-on: ubuntu-latest
 
