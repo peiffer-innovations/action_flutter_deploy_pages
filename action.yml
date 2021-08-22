@@ -17,6 +17,10 @@ inputs:
     description: "(Optional) Path to deploy the built application to"
     default: "web"
     required: false
+  repo_branch:
+    description: "Url to the repo to build"
+    default: "gh-pages"
+    required: false
   repo_url:
     description: "Url to the repo to build"
     required: true
