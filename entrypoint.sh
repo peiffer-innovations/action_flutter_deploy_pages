@@ -3,7 +3,7 @@
 set -e
 
 git config --global user.email "noop@github.com"
-git config --global url."https://${INPUT_TOKEN}@github.com/".insteadOf https://github.com/
+git config --global url."https://action:${INPUT_TOKEN}@github.com/".insteadOf https://github.com/
 
 cd $INPUT_SOURCE_PATH
 flutter packages get
