@@ -13,7 +13,7 @@ flutter build web --${INPUT_BUILD_MODE} ${INPUT_BUILD_FLAGS}
 mkdir pages
 cd pages
 
-git clone --branch $INPUT_REPO_BRANCH $INPUT_REPO_URL
+git clone --branch $INPUT_REPO_BRANCH $INPUT_REPO_URL .
 rm -rf $INPUT_DEPLOY_PATH
 mkdir $INPUT_DEPLOY_PATH
 cp -R ../build/web/* $INPUT_DEPLOY_PATH

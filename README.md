@@ -47,7 +47,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Publish
-        uses: peiffer-innovations/actions-flutter-deploy-pages@v1.3.0
+        uses: peiffer-innovations/actions-flutter-deploy-pages@v1.4.0
         with:
           build_number: ${{ needs.build_number.outputs.buildnumber }}
           deploy_path: web
