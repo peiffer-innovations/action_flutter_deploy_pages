@@ -15,7 +15,7 @@ cd pages
 
 git clone --branch $INPUT_REPO_BRANCH $INPUT_REPO_URL
 rm -rf $INPUT_DEPLOY_PATH
-mkrir $INPUT_DEPLOY_PATH
+mkdir $INPUT_DEPLOY_PATH
 cp -R ../build/web/* $INPUT_DEPLOY_PATH
 git add .
 git tag -a "v$INPUT_BUILD_NUMBER" -m "v$INPUT_BUILD_NUMBER" 
