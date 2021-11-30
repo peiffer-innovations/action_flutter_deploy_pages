@@ -57,7 +57,7 @@ runs:
       run: |
         flutter packages get
 
-        flutter build web --${{ inputs.build_node }} ${{ inputs.build_number}}
+        flutter build web --${{ inputs.build_mode }} --build-number ${{ inputs.build_number}}
 
         mkdir pages
         cd pages
