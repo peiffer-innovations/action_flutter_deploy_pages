@@ -63,9 +63,9 @@ runs:
         cd pages
 
         git clone --branch $INPUT_REPO_BRANCH $INPUT_REPO_URL .
-        rm -rf $INPUT_DEPLOY_PATH
-        mkdir $INPUT_DEPLOY_PATH
-        cp -R ../build/web/* $INPUT_DEPLOY_PATH
+        rm -rf ${{ inputs.deploy_path }}
+        mkdir ${{ inputs.deploy_path }}
+        cp -R ../build/web/* ${{ inputs.deploy_path }}
         git add .
         git tag -a "v${{ inputs.build_number }}" -m "v${{ inputs.build_number }}" 
         git commit -m "Pages ${{ inputs.build_number }}"
