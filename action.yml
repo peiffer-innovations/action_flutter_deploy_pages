@@ -13,6 +13,10 @@ inputs:
   build_number:
     description: "Build Number to use for the build"
     required: true
+  channel:
+    description: "(Optional) Default flutter channel to use"
+    default: "stable"
+    required: false
   deploy_path:
     description: "(Optional) Path to deploy the built application to"
     default: "web"
@@ -33,8 +37,37 @@ inputs:
     required: true
 
 runs:
-  using: "docker"
-  image: "Dockerfile"
-branding:
-  icon: "arrow-up-circle"
-  color: "blue"
+  using: "composite"
+  steps:
+    - name: Setup Flutter
+      uses: subosito/flutter-action@v1
+      with:
+        channel: ${{ inputs.channel }}
+
+    - name: Setup Git
+      shell: bash
+      run: |
+        set -e
+
+        git config --global user.email "noop@github.com"
+        git config --global url."https://action:${{ inputs.token }}@github.com/".insteadOf https://github.com/
+
+    - name: Setup Git
+      shell: bash
+      run: |
+        flutter packages get
+
+        flutter build web --${{ inputs.build_node }} ${{ inputs.build_number}}
+
+        mkdir pages
+        cd pages
+
+        git clone --branch $INPUT_REPO_BRANCH $INPUT_REPO_URL .
+        rm -rf $INPUT_DEPLOY_PATH
+        mkdir $INPUT_DEPLOY_PATH
+        cp -R ../build/web/* $INPUT_DEPLOY_PATH
+        git add .
+        git tag -a "v${{ inputs.build_number }}" -m "v${{ inputs.build_number }}" 
+        git commit -m "Pages ${{ inputs.build_number }}"
+        git push -f origin HEAD:gh-pages
+      working-directory: ${{ inputs.source_path }}

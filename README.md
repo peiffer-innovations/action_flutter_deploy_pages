@@ -9,6 +9,7 @@ Name           | Default    | Description
 `build_flags`  | n/a        | (Optional) Build flags to pass to Flutter when building the web
 `build_mode`   | `release`  | (Optional) Release mode; debug, profile, release
 `build_number` | n/a        | Build Number to use for the build
+`channel`      | `stable`   | Flutter channel to use for the build
 `deploy_path`  | `web`      | (Optional) Path to deploy the built application to
 `repo_branch`  | `gh-pages` | Url to the repo to build.
 `repo_url`     | n/a        | Url to the repo to build.
@@ -47,7 +48,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Publish
-        uses: peiffer-innovations/actions-flutter-deploy-pages@v1.4.0
+        uses: peiffer-innovations/actions-flutter-deploy-pages@v1.1.0
         with:
           build_number: ${{ needs.build_number.outputs.buildnumber }}
           deploy_path: web
