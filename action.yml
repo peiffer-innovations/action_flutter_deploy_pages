@@ -62,7 +62,7 @@ runs:
         mkdir pages
         cd pages
 
-        git clone --branch $INPUT_REPO_BRANCH $INPUT_REPO_URL .
+        git clone --branch ${{ inputs.repo_branch }} ${{ inputs.repo_url }} .
         rm -rf ${{ inputs.deploy_path }}
         mkdir ${{ inputs.deploy_path }}
         cp -R ../build/web/* ${{ inputs.deploy_path }}
