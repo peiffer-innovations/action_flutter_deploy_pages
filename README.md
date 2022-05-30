@@ -11,7 +11,7 @@ Name           | Default    | Description
 `build_number` | n/a        | Build Number to use for the build
 `channel`      | `stable`   | Flutter channel to use for the build
 `deploy_path`  | `web`      | (Optional) Path to deploy the built application to
-`repo_branch`  | `gh-pages` | Url to the repo to build.
+`repo_branch`  | `gh-pages` | Branch of the repo to build
 `repo_url`     | n/a        | Url to the repo to build.
 `source_path`  | `.`        | (Optional) Path to the source to build
 `token`        | n/a        | Access token for the GH Push to retrieve code.  Typically: `${{ secrets.GITHUB_TOKEN }}`
