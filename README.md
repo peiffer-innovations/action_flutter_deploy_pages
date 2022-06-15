@@ -1,3 +1,13 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [actions-flutter-deploy-pages](#actions-flutter-deploy-pages)
+  - [Inputs](#inputs)
+  - [Example usage](#example-usage)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # actions-flutter-deploy-pages
 
 Performs checks against Dart and Flutter code to ensure the package does not have any analysis issues, failed tests, or improperly formatted code (as defined by `dartfmt`).
