@@ -1,43 +1,47 @@
 # action.yml
-name: "Deploy a Flutter Web build to GH Pages"
-description: "Validate Dart/Flutter package"
+name: 'Deploy a Flutter Web build to GH Pages'
+description: 'Validate Dart/Flutter package'
 inputs:
   build_flags:
-    description: "(Optional) Build flags to pass to Flutter when building the web"
+    description: '(Optional) Build flags to pass to Flutter when building the web'
     required: false
-    default: ""
+    default: ''
   build_mode:
-    description: "(Optional) Release mode; debug, profile, release"
-    default: "release"
+    description: '(Optional) Release mode; debug, profile, release'
+    default: 'release'
     required: false
   build_number:
-    description: "Build Number to use for the build"
+    description: 'Build Number to use for the build'
     required: true
   channel:
-    description: "(Optional) Default flutter channel to use"
-    default: "stable"
+    description: '(Optional) Default flutter channel to use'
+    default: 'stable'
     required: false
   deploy_path:
-    description: "(Optional) Path to deploy the built application to"
-    default: "web"
+    description: '(Optional) Path to deploy the built application to'
+    default: 'web'
+    required: false
+  flutter_version:
+    description: '(Optional) Flutter version to use'
+    default: 'any'
     required: false
   repo_branch:
-    description: "Url to the repo to build"
-    default: "gh-pages"
+    description: 'Url to the repo to build'
+    default: 'gh-pages'
     required: false
   repo_url:
-    description: "Url to the repo to build"
+    description: 'Url to the repo to build'
     required: true
   source_path:
-    description: "(Optional) Path to the source to build"
+    description: '(Optional) Path to the source to build'
     required: false
-    default: "."
+    default: '.'
   token:
-    description: "Access token for the GH Push to retrieve code"
+    description: 'Access token for the GH Push to retrieve code'
     required: true
 
 runs:
-  using: "composite"
+  using: 'composite'
   steps:
     - name: Setup Flutter
       uses: subosito/flutter-action@v2
@@ -56,6 +60,7 @@ runs:
     - name: Setup Git
       shell: bash
       run: |
+        flutter doctor -v
         flutter packages get
 
         flutter build web --${{ inputs.build_mode }} ${{ inputs.build_flags }}
