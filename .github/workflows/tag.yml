@@ -15,7 +15,7 @@ jobs:
       - name: Setup Dart
         uses: dart-lang/setup-dart@v1
 
-      - name: Update dependencies
+      - name: Autotag
         shell: bash
         run: |
           set -e

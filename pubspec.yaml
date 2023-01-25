@@ -1,5 +1,5 @@
 name: 'actions_flutter_deploy_pages'
-version: '1.14.0'
+version: '1.15.1'
 homepage: 'https://github.com/peiffer-innovations/actions-flutter-deploy-pages'
 
 publish: 'none'
