@@ -1,5 +1,5 @@
 name: 'actions_flutter_deploy_pages'
-version: '1.15.1'
+version: '1.15.2'
 homepage: 'https://github.com/peiffer-innovations/actions-flutter-deploy-pages'
 
 publish: 'none'
@@ -30,5 +30,6 @@ ignore_updates:
   - 'term_glyph'
   - 'test_api'
   - 'typed_data'
+  - 'uuid'
   - 'vector_math'
   - 'webdriver'
