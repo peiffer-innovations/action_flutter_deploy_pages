@@ -57,7 +57,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Publish
         uses: peiffer-innovations/actions-flutter-deploy-pages@v1
         with:
